@@ -1,0 +1,92 @@
+/* Design Tokens — Claudia Reedy Portfolio */
+
+:root {
+  /* Color palette */
+  --color-bg: #FAF7F2;
+  --color-bg-alt: #FFFFFF;
+  --color-bg-elevated: rgba(255, 255, 255, 0.7);
+  --color-fg: #1A1715;
+  --color-fg-muted: #5C5650;
+  --color-fg-subtle: #8A8278;
+  --color-accent: #C8553D;
+  --color-accent-soft: rgba(200, 85, 61, 0.08);
+  --color-border: rgba(26, 23, 21, 0.08);
+  --color-border-strong: rgba(26, 23, 21, 0.16);
+
+  /* Typography */
+  --font-display: 'Instrument Serif', 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  --size-xs: 0.75rem;
+  --size-sm: 0.875rem;
+  --size-base: 1rem;
+  --size-md: 1.125rem;
+  --size-lg: 1.25rem;
+  --size-xl: 1.5rem;
+  --size-2xl: 2rem;
+  --size-3xl: 2.75rem;
+  --size-4xl: 4rem;
+  --size-5xl: 5.5rem;
+  --size-6xl: 7rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+  --space-20: 12rem;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Shadows — soft-depth */
+  --shadow-sm: 0 1px 2px rgba(26, 23, 21, 0.04);
+  --shadow-md:
+    0 1px 2px rgba(26, 23, 21, 0.04),
+    0 4px 12px rgba(26, 23, 21, 0.06);
+  --shadow-lg:
+    0 1px 2px rgba(26, 23, 21, 0.04),
+    0 8px 24px rgba(26, 23, 21, 0.08),
+    0 24px 48px rgba(26, 23, 21, 0.06);
+  --shadow-xl:
+    0 2px 4px rgba(26, 23, 21, 0.05),
+    0 12px 32px rgba(26, 23, 21, 0.10),
+    0 32px 64px rgba(26, 23, 21, 0.08);
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-narrow: 760px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 200ms;
+  --duration-base: 320ms;
+  --duration-slow: 600ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14110F;
+    --color-bg-alt: #1C1815;
+    --color-bg-elevated: rgba(28, 24, 21, 0.7);
+    --color-fg: #F5F1EB;
+    --color-fg-muted: #B8B0A6;
+    --color-fg-subtle: #756E66;
+    --color-accent: #E07856;
+    --color-accent-soft: rgba(224, 120, 86, 0.12);
+    --color-border: rgba(245, 241, 235, 0.08);
+    --color-border-strong: rgba(245, 241, 235, 0.16);
+  }
+}

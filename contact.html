@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Claudia Reedy</title>
+  <meta name="description" content="Get in touch with Claudia Reedy, Senior UI/UX Designer." />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Claudia Reedy</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta is-active">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="container hero" style="text-align: center;">
+      <div class="hero-eyebrow" style="margin-left: auto; margin-right: auto;">Contact</div>
+      <h1 class="hero-headline" style="margin: 0 auto 1.5rem;">Let's build something <em>good</em>.</h1>
+      <p class="hero-sub" style="margin: 0 auto 3rem;">
+        Open to senior product design roles, freelance projects, and friendly hellos. I usually reply within 48 hours.
+      </p>
+    </section>
+
+    <!-- Contact form -->
+    <section class="container section">
+      <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-row">
+          <label for="company">Company (optional)</label>
+          <input type="text" id="company" name="company" />
+        </div>
+        <div class="form-row">
+          <label for="message">Tell me about it</label>
+          <textarea id="message" name="message" required placeholder="A little about the role, project, or hello..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-arrow" style="align-self: flex-start;">Send message</button>
+      </form>
+    </section>
+
+    <!-- Direct links -->
+    <section class="container section">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto;">
+        <div class="section-eyebrow">Or reach out directly</div>
+        <h2 style="margin-bottom: 2rem;">Whatever's easiest.</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+          <a href="mailto:hello@claudiareedy.com" class="btn btn-secondary">hello@claudiareedy.com</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn</a>
+          <a href="https://calendly.com/" target="_blank" rel="noopener" class="btn btn-secondary">Book a 30-min call</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-status">Available for work</span>
+        <div class="footer-links">
+          <a href="mailto:hello@claudiareedy.com">Email</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://dribbble.com" target="_blank" rel="noopener">Dribbble</a>
+        </div>
+        <span>© 2026 Claudia Reedy</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
