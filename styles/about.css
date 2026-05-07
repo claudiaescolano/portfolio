@@ -1,0 +1,630 @@
+/* ============================================================
+ * about.css
+ * About page (about.html) only: portrait hero, thread quote,
+ * principles, stack/capabilities, CV.
+ * Loaded after system.css on about.html.
+ *
+ * The .page-about body class scopes the one cross-component
+ * override (CTA spacing) without renaming any system class.
+ * ============================================================ */
+
+/* ============ ABOUT HERO ============ */
+section.about-hero {
+  padding: clamp(80px, 14vh, 140px) var(--pad) clamp(60px, 10vh, 80px);
+  position: relative;
+}
+
+.about-hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .about-hero-inner {
+    grid-template-columns: 360px 1fr;
+    gap: 80px;
+  }
+}
+
+.portrait-wrap {
+  position: relative;
+}
+
+.portrait-frame {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(135deg, #2a2a2a 0%, #0a0a0a 100%);
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.25);
+}
+
+.portrait-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(45deg, transparent 48%, rgba(244, 228, 188, 0.08) 49%, rgba(244, 228, 188, 0.08) 51%, transparent 52%);
+  background-size: 24px 24px;
+}
+
+.portrait-frame::after {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px dashed rgba(244, 228, 188, 0.25);
+  border-radius: 2px;
+}
+
+.portrait-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portrait-label .vlabel {
+  background: var(--bg);
+  padding: 12px 18px;
+  border: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.5;
+  max-width: 80%;
+}
+
+.portrait-label .vlabel-tag {
+  display: block;
+  font-size: 9px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.portrait-meta {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.portrait-stat {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.portrait-stat:last-child {
+  border-bottom: none;
+}
+
+.portrait-stat .label {
+  color: var(--muted);
+}
+
+.portrait-stat .val {
+  color: var(--ink);
+  font-weight: 500;
+  text-align: right;
+}
+
+.portrait-stat .val.green {
+  color: #2d8054;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.portrait-stat .val.green::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2d8054;
+}
+
+.about-intro {
+  padding-top: 8px;
+}
+
+.about-eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+h1.about-title {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(44px, 7vw, 88px);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  margin-bottom: 32px;
+  max-width: 14ch;
+}
+
+.about-title em {
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+}
+
+.about-lede {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 60, 'SOFT' 50;
+  max-width: 36ch;
+  margin-bottom: 32px;
+}
+
+.about-lede em {
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'opsz' 60, 'SOFT' 100;
+}
+
+.about-supporting {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 56ch;
+}
+
+/* ============ THREAD ============ */
+section.thread {
+  background: var(--bg-warm);
+  padding: clamp(60px, 10vh, 100px) var(--pad);
+  border-top: 1px solid rgba(26, 26, 26, 0.12);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+  position: relative;
+}
+
+.thread::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent) 0%, transparent 50%);
+}
+
+.thread-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: baseline;
+}
+
+@media (min-width: 900px) {
+  .thread-inner {
+    grid-template-columns: 220px 1fr;
+    gap: 56px;
+  }
+}
+
+.thread-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  padding-top: 8px;
+}
+
+.thread-quote {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  max-width: 22ch;
+  position: relative;
+}
+
+.thread-quote em {
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+}
+
+.thread-quote::before {
+  content: '"';
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(80px, 14vw, 160px);
+  line-height: 0.5;
+  color: var(--ink);
+  opacity: 0.08;
+  position: absolute;
+  left: -0.2em;
+  top: 0.1em;
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+  pointer-events: none;
+}
+
+.thread-attribution {
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.thread-attribution::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ============ HOW I WORK ============ */
+section.how {
+  padding: clamp(80px, 14vh, 140px) var(--pad);
+}
+
+.how-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.how-header {
+  margin-bottom: 64px;
+}
+
+.how-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.how-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.how-title {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  max-width: 22ch;
+}
+
+.how-title em {
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+}
+
+.principles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.principle {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: clamp(32px, 5vh, 48px) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.principle:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (min-width: 900px) {
+  .principle {
+    grid-template-columns: 80px 320px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+}
+
+.principle-num {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  padding-top: 6px;
+  font-weight: 600;
+}
+
+.principle-headline {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(22px, 2.5vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 60, 'SOFT' 50;
+}
+
+.principle-headline em {
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'opsz' 60, 'SOFT' 100;
+}
+
+.principle-body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 420;
+  color: var(--muted);
+  max-width: 56ch;
+}
+
+.principle-body strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ============ STACK / CAPABILITIES ============ */
+section.stack {
+  padding: clamp(60px, 10vh, 100px) var(--pad);
+  background: var(--bg);
+  border-top: 1px solid var(--rule);
+}
+
+.stack-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 900px) {
+  .stack-inner {
+    grid-template-columns: 220px 1fr;
+    gap: 64px;
+  }
+}
+
+.stack-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  padding-top: 14px;
+  position: relative;
+}
+
+.stack-label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 600px) {
+  .stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (min-width: 900px) {
+  .stack-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stack-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+}
+
+.stack-cell-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.stack-cell-list {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.stack-cell-list span {
+  color: var(--muted);
+}
+
+/* ============ CV ============ */
+section.cv {
+  padding: clamp(60px, 10vh, 100px) var(--pad);
+}
+
+.cv-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 900px) {
+  .cv-inner {
+    grid-template-columns: 220px 1fr;
+    gap: 64px;
+  }
+}
+
+.cv-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  padding-top: 14px;
+  position: relative;
+}
+
+.cv-label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.cv-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.cv-row:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (min-width: 700px) {
+  .cv-row {
+    grid-template-columns: 100px 1fr 200px;
+    gap: 32px;
+    align-items: baseline;
+  }
+}
+
+.cv-year {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.cv-role {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 36, 'SOFT' 50;
+  line-height: 1.3;
+}
+
+.cv-role em {
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'opsz' 36, 'SOFT' 100;
+}
+
+.cv-org {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.cv-link {
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.25s;
+}
+
+.cv-link:hover {
+  gap: 12px;
+}
+
+/* ============ CTA SPACING OVERRIDE ============
+   The CTA strip is shared in system.css. About wants a 60px gap
+   above it because the section above (.cv) lands without bottom
+   padding. Scoped via the body's .page-about class. */
+.page-about .cta {
+  margin-top: 60px;
+}

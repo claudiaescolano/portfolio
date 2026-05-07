@@ -1,0 +1,753 @@
+/* ============================================================
+ * system.css
+ * Shared components used on more than one page: nav, hero shell,
+ * eyebrow, hook, numbers wrapper, body section, divider, visual
+ * block, next-up footer, site footer, CTA strip.
+ * Loaded after tokens.css on every page.
+ * ============================================================ */
+
+/* ============ NAV ============ */
+nav.top {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 248, 243, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 18px var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  text-decoration: none;
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--ink);
+}
+
+.nav-links a.active {
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent);
+}
+
+.back-link {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s, gap 0.2s;
+}
+
+.back-link:hover {
+  color: var(--accent);
+  gap: 12px;
+}
+
+/* ============ HERO SHELL ============
+   The black-block container. Used on home + every case study.
+   Inside content (.eyebrow, .hero-title, etc.) defined below for the
+   case-study pattern; home.css overrides via .hero--home modifier. */
+section.hero {
+  background: var(--black);
+  color: var(--bg);
+  padding: clamp(80px, 14vh, 160px) var(--pad) clamp(80px, 14vh, 140px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+/* Case-study hero eyebrow (mono label + trailing rule) */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--cream);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.1s forwards;
+}
+
+.eyebrow::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: var(--cream);
+  opacity: 0.35;
+}
+
+h1.hero-title {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(44px, 7.5vw, 96px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--bg);
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  margin-bottom: 40px;
+  max-width: 18ch;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.25s forwards;
+}
+
+h1.hero-title em {
+  font-style: italic;
+  color: var(--cream);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+}
+
+.hero-subtitle {
+  font-family: var(--sans);
+  font-size: clamp(17px, 1.4vw, 19px);
+  font-weight: 420;
+  line-height: 1.55;
+  color: var(--bg-warm);
+  max-width: 56ch;
+  opacity: 0;
+  animation: fadeUp 1s 0.4s forwards;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(244, 228, 188, 0.2);
+  opacity: 0;
+  animation: fadeUp 1s 0.55s forwards;
+}
+
+.hero-meta dl {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-meta dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cream);
+  opacity: 0.7;
+}
+
+.hero-meta dd {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--bg);
+  font-weight: 400;
+}
+
+/* ============ HOOK ============ */
+section.hook {
+  padding: clamp(80px, 12vh, 140px) var(--pad);
+  background: var(--bg);
+}
+
+.hook-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hook-mark {
+  font-family: var(--display);
+  font-size: clamp(80px, 14vw, 180px);
+  line-height: 0.6;
+  color: var(--cream);
+  position: absolute;
+  left: -20px;
+  top: -10px;
+  font-style: italic;
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.hook-text {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  position: relative;
+  z-index: 1;
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  max-width: 22ch;
+}
+
+.hook-text em {
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+}
+
+/* ============ NUMBERS WRAPPER ============
+   Outer black panel + header + tagline. Inner layout variants
+   (.numbers-grid, .nea-stats, .wins-grid) live in case-study.css. */
+section.numbers {
+  padding: 0 var(--pad) clamp(80px, 12vh, 120px);
+  background: var(--bg);
+}
+
+.numbers-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  background: var(--black);
+  color: var(--bg);
+  padding: clamp(40px, 6vw, 72px) clamp(32px, 5vw, 64px);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.numbers-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cream) 0%, transparent 60%);
+}
+
+.numbers-header {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--cream);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.numbers-header::before {
+  content: '◉';
+  color: var(--cream);
+  font-size: 8px;
+}
+
+.numbers-tagline {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(244, 228, 188, 0.15);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.4;
+  color: var(--cream);
+  font-variation-settings: 'opsz' 144, 'SOFT' 80;
+  max-width: 60ch;
+}
+
+/* ============ BODY SECTION ============
+   Two-column label/content section used throughout case studies. */
+section.body-section {
+  padding: clamp(60px, 10vh, 120px) var(--pad);
+  position: relative;
+}
+
+.body-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 900px) {
+  .body-inner {
+    grid-template-columns: 220px 1fr;
+    gap: 64px;
+  }
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  position: relative;
+  padding-top: 14px;
+}
+
+.section-label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.section-label .num {
+  display: block;
+  font-size: 11px;
+  color: var(--accent);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.section-content {
+  max-width: var(--measure);
+}
+
+.section-content p {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-bottom: 1.4em;
+  font-weight: 420;
+}
+
+.section-content p:last-child {
+  margin-bottom: 0;
+}
+
+.section-content h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  font-variation-settings: 'opsz' 60, 'SOFT' 50;
+}
+
+.section-content h3:first-child {
+  margin-top: 0;
+}
+
+.section-content strong {
+  font-weight: 600;
+  color: var(--black);
+}
+
+.section-content em {
+  font-style: italic;
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 36, 'SOFT' 100;
+  font-size: 1.02em;
+}
+
+.section-content code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--cream);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--accent-deep);
+  font-weight: 500;
+}
+
+/* ============ SECTION DIVIDER ============ */
+.divider {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted-soft);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ============ VISUAL PLACEHOLDER BLOCK ============ */
+.visual-block {
+  margin: 48px 0;
+  width: 100%;
+}
+
+.visual-frame {
+  background: linear-gradient(135deg, #ede9dc 0%, #e8e2d1 100%);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(45deg, transparent 48%, rgba(26, 26, 26, 0.06) 49%, rgba(26, 26, 26, 0.06) 51%, transparent 52%);
+  background-size: 24px 24px;
+}
+
+.visual-frame::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px dashed rgba(26, 26, 26, 0.2);
+  border-radius: 2px;
+}
+
+.visual-label {
+  position: relative;
+  z-index: 2;
+  background: var(--bg);
+  padding: 12px 20px;
+  border: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  max-width: 80%;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+.visual-label .vlabel-tag {
+  display: block;
+  font-size: 10px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.visual-caption {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 14px;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+.visual-caption strong {
+  color: var(--accent);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* Full-bleed visual variant (case studies) */
+.visual-block.full {
+  margin-left: calc(-1 * var(--pad));
+  margin-right: calc(-1 * var(--pad));
+  width: calc(100% + 2 * var(--pad));
+}
+
+.visual-block.full .visual-frame {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  aspect-ratio: 21 / 9;
+}
+
+@media (min-width: 900px) {
+  .visual-block {
+    grid-column: 2;
+  }
+  .visual-block.wide {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ============ NEXT-UP FOOTER (case studies) ============ */
+section.next-up {
+  margin-top: 60px;
+  background: var(--black);
+  color: var(--bg);
+  padding: clamp(80px, 14vh, 140px) var(--pad);
+  position: relative;
+  overflow: hidden;
+}
+
+.next-up-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .next-up-inner {
+    grid-template-columns: 1fr auto;
+    gap: 64px;
+  }
+}
+
+.next-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--cream);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.next-label::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.next-title {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(36px, 5.5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--bg);
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  margin-bottom: 16px;
+}
+
+.next-title em {
+  font-style: italic;
+  color: var(--cream);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+}
+
+.next-sub {
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--bg-warm);
+  max-width: 50ch;
+  line-height: 1.55;
+}
+
+.next-cta {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cream);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--cream);
+  padding: 16px 28px;
+  border-radius: 2px;
+  transition: background 0.25s, color 0.25s, gap 0.25s;
+  white-space: nowrap;
+}
+
+.next-cta:hover {
+  background: var(--cream);
+  color: var(--black);
+  gap: 16px;
+}
+
+/* ============ CTA STRIP (home + about) ============
+   Same component as next-up, different content; lives here because
+   index.html and about.html share byte-identical CSS for it. */
+section.cta {
+  background: var(--black);
+  color: var(--bg);
+  padding: clamp(80px, 14vh, 140px) var(--pad);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .cta-inner {
+    grid-template-columns: 1fr auto;
+    gap: 64px;
+  }
+}
+
+.cta-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--cream);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cta-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.cta-title {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(36px, 5.5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--bg);
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  margin-bottom: 16px;
+  max-width: 22ch;
+}
+
+.cta-title em {
+  font-style: italic;
+  color: var(--cream);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+}
+
+.cta-sub {
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--bg-warm);
+  max-width: 50ch;
+  line-height: 1.55;
+}
+
+.cta-button {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cream);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--cream);
+  padding: 16px 28px;
+  border-radius: 2px;
+  transition: background 0.25s, color 0.25s, gap 0.25s;
+  white-space: nowrap;
+}
+
+.cta-button:hover {
+  background: var(--cream);
+  color: var(--black);
+  gap: 16px;
+}
+
+/* ============ SITE FOOTER ============ */
+footer.site {
+  background: var(--ink);
+  color: var(--muted-soft);
+  padding: 32px var(--pad);
+  border-top: 1px solid rgba(244, 228, 188, 0.08);
+}
+
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+footer a {
+  color: var(--cream);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+/* ============ MOBILE ============ */
+@media (max-width: 768px) {
+  .nav-links { gap: 18px; }
+}

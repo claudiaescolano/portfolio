@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support Portal — Claudia Reedy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../styles/tokens.css">
+<link rel="stylesheet" href="../styles/system.css">
+<link rel="stylesheet" href="../styles/case-study.css">
+
+<script src="../scripts/reveal.js" defer></script>
+</head>
+<body class="page-case-study">
+
+<nav class="top">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">CR</a>
+    <div class="nav-links">
+      <a href="../index.html" class="back-link">← All work</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">
+      <span>Case Study 01</span>
+      <span>·</span>
+      <span>AI Workflow</span>
+      <span>·</span>
+      <span>2026</span>
+    </div>
+
+    <h1 class="hero-title">
+      Support Portal:<br>shipping <em>production</em><br>in a week.
+    </h1>
+
+    <p class="hero-subtitle">
+      The development team estimated this support portal at 2+ months. I built a production-ready version in one week using Claude Code, then partnered with engineering to bring it to life.
+    </p>
+
+    <div class="hero-meta">
+      <dl>
+        <dt>Role</dt>
+        <dd>Senior Product Designer</dd>
+      </dl>
+      <dl>
+        <dt>Company</dt>
+        <dd>Arrivia</dd>
+      </dl>
+      <dl>
+        <dt>Year</dt>
+        <dd>2026</dd>
+      </dl>
+      <dl>
+        <dt>Stack</dt>
+        <dd>Claude Code, EPiServer, Figma MCP, Chrome MCP</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOOK ============ -->
+<section class="hook" data-reveal>
+  <div class="hook-inner">
+    <span class="hook-mark">"</span>
+    <p class="hook-text">
+      A designer-led <em>build</em>, an engineering-led <em>launch</em>, and a workflow the team can reuse.
+    </p>
+  </div>
+</section>
+
+<!-- ============ NUMBER BLOCK ============ -->
+<section class="numbers" data-reveal>
+  <div class="numbers-inner">
+    <div class="numbers-header">
+      <span>The Math</span>
+    </div>
+
+    <div class="numbers-grid">
+      <div class="headline-stat">
+        <span class="num">2+ months</span><span class="arrow">→</span><span class="num">1 week</span>
+      </div>
+
+      <div class="stats-side">
+        <div class="stat-row">
+          <span class="stat-label">Original Estimate</span>
+          <span class="stat-value">2+ months</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Actual Delivery</span>
+          <span class="stat-value">1 week, part-time</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Time Saved</span>
+          <span class="stat-value accent">~85%</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Output</span>
+          <span class="stat-value">Production-ready code</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="numbers-tagline">
+      Not a prototype. Not a proof-of-concept. The build engineering picked up to take to production.
+    </p>
+  </div>
+</section>
+
+<!-- ============ CONTEXT ============ -->
+<div class="divider"><span>§ Context</span></div>
+
+<section class="body-section" data-reveal>
+  <div class="body-inner">
+    <div class="section-label"><span class="num">01</span>Context</div>
+    <div class="section-content">
+      <p>Arrivia's redesigned Support Portal had been sitting in the queue for months. The design was approved. Engineering had scoped it at 2+ months of work — and that estimate didn't include search functionality. With a small dev team in high demand, the project was slated to wait.</p>
+
+      <p>This is a familiar pattern at most companies. Design moves faster than engineering can absorb it, work piles up in the backlog, and the gap between "designed" and "shipped" widens. Tools like Figma Make and Stitch help with the design-to-prototype handoff, but they stop where production begins.</p>
+
+      <p>I wanted to see if I could close that gap — not by replacing engineering, but by getting the work 90% of the way there so the team could focus on what only they could do: production hardening, integration, and launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPROACH ============ -->
+<div class="divider"><span>§ Approach</span></div>
+
+<section class="body-section" data-reveal>
+  <div class="body-inner">
+    <div class="section-label"><span class="num">02</span>Approach</div>
+    <div class="section-content">
+      <p>The thesis was simple: if Claude Code could read Figma directly and operate a browser, a designer with no formal engineering background could ship production code by directing the work rather than writing it. The skill being tested wasn't coding — it was system design, judgment, and QA.</p>
+
+      <h3>Treat it like real engineering, not a prototype demo.</h3>
+      <p>I set up an isolated EPiServer instance so nothing touched production, and I built a reusable Claude Skill — a command like <code>/optimizely-dev</code> that captures the full setup, troubleshooting steps, and project templates. The skill meant the next portal, the next environment, the next teammate could start from one command instead of re-discovering everything. This was the part that mattered most strategically: not the portal, but the repeatable system.</p>
+
+      <h3>Connect Claude to both ends of the pipeline.</h3>
+      <p>Figma MCP gave Claude direct read access to the design files. Chrome MCP let it operate the browser, take screenshots, and compare its output against the Figma source in real time. The loop was: <em>read design → write code → render → screenshot → compare → fix.</em> Minutes per iteration, not days.</p>
+
+      <h3>Plan first, then build.</h3>
+      <p>Before any code was written, Claude produced an implementation plan I reviewed and approved. Models, views, CSS, JS, search behavior, error states — sequenced and explicit. Most AI-build failures I've seen come from skipping this step and asking the model to figure it out as it goes. Planning is where design judgment compounds.</p>
+
+      <h3>Stay in the QA seat.</h3>
+      <p>My job during the build wasn't to write code — it was to direct, review, and reject. When the sidebar icons came back inconsistent in stroke weight, I caught it. When the empty search state was technically functional but visually weak, I rewrote the spec. The model is fast and tireless; the design judgment has to come from somewhere, and so does the engineering judgment that turns "working" into "production."</p>
+    </div>
+
+    <div class="visual-block wide">
+      <div class="visual-frame">
+        <div class="visual-label">
+          <span class="vlabel-tag">Visual 01 · Hero</span>
+          Final Support Portal — full-bleed screenshot showing sidebar nav, FAQ accordions, search results state, and white-label theming
+        </div>
+      </div>
+      <p class="visual-caption"><strong>Output</strong>The portal shipped with everything in the original spec plus search functionality the original estimate had cut.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE WORK ============ -->
+<div class="divider"><span>§ The Work</span></div>
+
+<section class="body-section" data-reveal>
+  <div class="body-inner">
+    <div class="section-label"><span class="num">03</span>The Work</div>
+    <div class="section-content">
+      <p>The portal shipped with everything in the original spec plus search functionality the original estimate had cut: sidebar navigation, FAQ accordions, live search with results and error states, responsive breakpoints, and white-label CSS theming so the same portal could re-skin per partner.</p>
+
+      <p>One representative iteration loop tells the story of how the system worked end-to-end. The first sidebar pass came back using Font Awesome icons that didn't match Figma. I flagged the mismatch. Claude pulled the eleven custom SVGs from Figma directly, validated them, fixed the <code>preserveAspectRatio</code> attribute that was stretching them, and updated the CSS — all in a single pass.</p>
+    </div>
+
+    <div class="visual-block wide">
+      <div class="visual-frame">
+        <div class="visual-label">
+          <span class="vlabel-tag">Visual 02 · Before / After</span>
+          Sidebar icon set — before (Font Awesome, mismatched) and after (custom SVGs from Figma, matched and validated)
+        </div>
+      </div>
+    </div>
+
+    <div class="terminal-block">
+      <div class="meta">claude-code · iteration log · 14:22</div>
+      <div class="terminal-content">
+        <span class="prompt">›</span> Used 4 tools<br>
+        <span class="prompt">›</span> Got icons for the first 5. Now let me get the remaining 6 icons.<br>
+        <span class="prompt">›</span> Updated todo list<br><br>
+        <span class="prompt">›</span> Retrieved Figma design context for 7 sidebar icon components with asset URLs<br>
+        Now I have all 11 icon URLs. Let me download them all and fix the "Cars" label.<br><br>
+        <span class="prompt">›</span> Downloaded eleven SVG icons from Figma to local directory<br>
+        <span class="prompt">›</span> Verified downloaded SVG icon files are valid and properly formatted<br>
+        <span class="prompt">›</span> <span class="out success">Fix preserveAspectRatio and dimensions</span><br>
+        Now let me update the CSS to use these custom SVG icons instead of Font Awesome.
+      </div>
+    </div>
+
+    <div class="visual-block wide">
+      <div class="visual-frame">
+        <div class="visual-label">
+          <span class="vlabel-tag">Visual 03 · Process Video</span>
+          Live build walkthrough — Claude switching between EPiServer admin, code editor, and browser preview in real time
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<div class="divider"><span>§ Impact</span></div>
+
+<section class="body-section" data-reveal>
+  <div class="body-inner">
+    <div class="section-label"><span class="num">04</span>Impact</div>
+    <div class="section-content">
+      <p>I handed the build off to engineering with a complete implementation plan — which files to copy, what to configure, what to watch out for. The team is now bringing it to production.</p>
+
+      <p>The headline number is <strong>~85% time saved</strong> against the original estimate. The more durable outcome is the Claude Skill built during the project, which is now reusable infrastructure for future EPiServer work — meaning the next project doesn't start from scratch.</p>
+
+      <p>I presented this work at Arrivia's internal AI Hackathon to the broader product and engineering org. The framing — <em>bringing dev superpowers to everyone</em> — became a recurring conversation about what the team's delivery model could look like if every designer worked this way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFLECTION ============ -->
+<div class="divider"><span>§ Reflection</span></div>
+
+<section class="body-section" data-reveal>
+  <div class="body-inner">
+    <div class="section-label"><span class="num">05</span>Reflection</div>
+    <div class="section-content">
+      <p>The instinct most designers have when they see AI tools is to use them for inspiration — moodboards, first drafts, brainstorming. That's the smallest version of the bet.</p>
+
+      <p>The bigger version is: <em>redesign your delivery model around them.</em> Build skills, set up environments, treat your AI as a collaborator with clear specs and a tight feedback loop. The 85% number isn't about Claude being magic — it's about removing the handoff between design and production, which is where most product work goes to die.</p>
+
+      <p>What I'd do differently next time: bring engineering in from day one, not at handoff. Their context on the existing codebase, deployment patterns, and edge cases would have made the build sharper. The technical work and the collaboration work are the same work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEXT UP ============ -->
+<section class="next-up" data-reveal>
+  <div class="next-up-inner">
+    <div>
+      <div class="next-label">Next Case Study · 02</div>
+      <h2 class="next-title">iCruise: <em>one redesign,</em><br>three wins.</h2>
+      <p class="next-sub">A B2C redesign that converted a major US telecom away from a competitor — and rewrote how Arrivia pitches partners.</p>
+    </div>
+    <a href="icruise.html" class="next-cta">Read iCruise →</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="footer-inner">
+    <span>© 2026 Claudia Reedy</span>
+    <span>Senior Product Designer</span>
+    <a href="#">Email · LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>

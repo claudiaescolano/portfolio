@@ -1,0 +1,85 @@
+/* ============================================================
+ * tokens.css
+ * CSS variables, font wiring, base reset, page-wide ambient styles.
+ * Loaded first on every page.
+ * ============================================================ */
+
+:root {
+  /* Colors */
+  --black: #0a0a0a;        /* hero blocks, metric panel backgrounds */
+  --ink: #1a1a1a;          /* body text, accent rules */
+  --bg: #faf8f3;           /* warm off-white page background */
+  --bg-warm: #f4e4bc;      /* cream accent (intro strip, thread, dark-surface warmth) */
+  --cream: #f4e4bc;        /* alias for --bg-warm */
+  --rule: #d8d4c5;         /* borders and rules */
+  --muted: #6b6760;        /* secondary text */
+  --muted-soft: #8c8780;   /* tertiary text */
+
+  /* Accent (formerly --rust). Kept identical to --ink so the system reads as monochrome. */
+  --accent: #1a1a1a;
+  --accent-deep: #0a0a0a;
+
+  /* Type families */
+  --display: 'Fraunces', Georgia, serif;
+  --sans: 'Geist', -apple-system, sans-serif;
+  --mono: 'Geist Mono', 'SF Mono', monospace;
+
+  /* Layout */
+  --max-w: 1200px;
+  --measure: 640px;
+  --pad: clamp(20px, 4vw, 48px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'ss01', 'ss02';
+  line-height: 1.5;
+  position: relative;
+}
+
+/* Subtle paper grain — fixed, behind content, multiplies into the page */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  mix-blend-mode: multiply;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Scroll-triggered reveal — applied by reveal.js */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}

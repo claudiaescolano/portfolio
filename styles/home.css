@@ -1,0 +1,422 @@
+/* ============================================================
+ * home.css
+ * Home page (index.html) only: hero overrides, intro strip,
+ * selected-work case list.
+ * Loaded after system.css on index.html.
+ * ============================================================ */
+
+/* ============ HERO OVERRIDES (.hero--home) ============
+   The home hero uses the same .hero shell from system.css but with
+   more generous vertical padding, a larger title, a custom eyebrow
+   with a pulsing dot, and a "status" row in place of .hero-meta. */
+
+section.hero--home {
+  padding: clamp(100px, 20vh, 200px) var(--pad);
+}
+
+.hero--home h1.hero-title {
+  font-size: clamp(56px, 10vw, 140px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  margin-bottom: 56px;
+  max-width: none;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--cream);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.1s forwards;
+}
+
+.hero-eyebrow::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: var(--cream);
+  opacity: 0.35;
+}
+
+.hero-eyebrow .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: inline-block;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(244, 228, 188, 0.5); }
+  50%      { opacity: 0.7; box-shadow: 0 0 0 6px rgba(244, 228, 188, 0); }
+}
+
+.hero-tagline {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--bg-warm);
+  font-variation-settings: 'opsz' 60, 'SOFT' 50;
+  max-width: 32ch;
+  opacity: 0;
+  animation: fadeUp 1s 0.4s forwards;
+}
+
+.hero-tagline em {
+  font-style: italic;
+  color: var(--cream);
+  font-variation-settings: 'opsz' 60, 'SOFT' 100;
+}
+
+.hero-status {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(244, 228, 188, 0.15);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  opacity: 0;
+  animation: fadeUp 1s 0.55s forwards;
+}
+
+.hero-status dl {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero-status dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cream);
+  opacity: 0.7;
+}
+
+.hero-status dd {
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--bg);
+  font-weight: 400;
+}
+
+.hero-status dd.with-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-status dd .small-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6fcf97;
+  box-shadow: 0 0 8px rgba(111, 207, 151, 0.5);
+}
+
+/* ============ INTRO STRIP ============ */
+section.intro-strip {
+  background: var(--bg-warm);
+  padding: clamp(48px, 8vh, 80px) var(--pad);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+  position: relative;
+}
+
+.intro-strip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent) 0%, transparent 50%);
+}
+
+.intro-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: baseline;
+}
+
+@media (min-width: 900px) {
+  .intro-inner {
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+  }
+}
+
+.intro-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  padding-top: 8px;
+}
+
+.intro-text {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  max-width: 36ch;
+}
+
+.intro-text em {
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+}
+
+/* ============ SELECTED WORK ============ */
+section.work {
+  padding: clamp(80px, 14vh, 140px) var(--pad);
+}
+
+.work-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.work-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.work-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.work-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.work-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.case-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.case-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: clamp(40px, 6vh, 64px) 0;
+  border-top: 1px solid var(--rule);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.case-card:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (min-width: 900px) {
+  .case-card {
+    grid-template-columns: 80px 1fr 1.1fr;
+    gap: 48px;
+    align-items: start;
+  }
+}
+
+.case-card:hover {
+  padding-left: 16px;
+}
+
+.case-card:hover .case-arrow {
+  transform: translateX(8px);
+  color: var(--accent);
+}
+
+.case-card:hover .case-image {
+  transform: scale(1.01);
+}
+
+.case-num {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  padding-top: 6px;
+  font-weight: 600;
+}
+
+.case-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.case-tags span {
+  padding: 4px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+.case-title {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+}
+
+.case-title em {
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+}
+
+.case-desc {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 420;
+  color: var(--muted);
+  max-width: 42ch;
+}
+
+.case-stat {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.case-stat::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.case-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  margin-top: 8px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.2s;
+}
+
+.case-image {
+  background: linear-gradient(135deg, #ede9dc 0%, #e8e2d1 100%);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.case-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(45deg, transparent 48%, rgba(26, 26, 26, 0.05) 49%, rgba(26, 26, 26, 0.05) 51%, transparent 52%);
+  background-size: 24px 24px;
+}
+
+.case-image::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px dashed rgba(26, 26, 26, 0.2);
+  border-radius: 2px;
+}
+
+.case-image .vlabel {
+  position: relative;
+  z-index: 2;
+  background: var(--bg);
+  padding: 10px 16px;
+  border: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  max-width: 80%;
+  line-height: 1.5;
+}
+
+.case-image .vlabel-tag {
+  display: block;
+  font-size: 9px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+/* ============ HOME MOBILE ============ */
+@media (max-width: 768px) {
+  .nav-links a:first-child { display: none; }
+}
