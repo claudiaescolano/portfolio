@@ -91,6 +91,21 @@ section.about-hero {
   font-weight: 500;
 }
 
+/* When a real portrait is dropped in, hide the placeholder decoration
+   (diagonal lines, dashed border, and vlabel) and let the image fill. */
+.portrait-frame:has(img)::before,
+.portrait-frame:has(img)::after { display: none; }
+
+.portrait-frame:has(img) .portrait-label { display: none; }
+
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% center;
+  display: block;
+}
+
 .portrait-meta {
   margin-top: 24px;
   display: flex;
