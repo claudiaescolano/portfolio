@@ -141,7 +141,18 @@
 
       <h3>Treat it like real engineering, not a prototype demo.</h3>
       <p>I set up an isolated EPiServer instance so nothing touched production, and I built a reusable Claude Skill — a command like <code>/optimizely-dev</code> that captures the full setup, troubleshooting steps, and project templates. The skill meant the next portal, the next environment, the next teammate could start from one command instead of re-discovering everything. This was the part that mattered most strategically: not the portal, but the repeatable system.</p>
+    </div>
 
+    <div class="visual-block wide">
+      <div class="visual-frame">
+        <div class="visual-label">
+          <span class="vlabel-tag">The Optimizely Skill</span>
+          /optimizely-dev — the reusable Claude Skill capturing setup, troubleshooting paths, and project scaffolds for future EPiServer work
+        </div>
+      </div>
+    </div>
+
+    <div class="section-content">
       <h3>Connect Claude to both ends of the pipeline.</h3>
       <p>Figma MCP gave Claude direct read access to the design files. Chrome MCP let it operate the browser, take screenshots, and compare its output against the Figma source in real time. The loop was: <em>read design → write code → render → screenshot → compare → fix.</em> Minutes per iteration, not days.</p>
 
