@@ -506,6 +506,23 @@ section.body-section {
   margin-right: 8px;
 }
 
+/* When a real image or video is dropped into a visual-frame, hide
+   the placeholder decoration (diagonal lines, dashed border) and
+   let the media fill the frame. Mirrors the case-image / portrait
+   pattern used on home + about. */
+.visual-frame:has(img)::before,
+.visual-frame:has(img)::after,
+.visual-frame:has(video)::before,
+.visual-frame:has(video)::after { display: none; }
+
+.visual-frame img,
+.visual-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* Full-bleed visual variant (case studies) */
 .visual-block.full {
   margin-left: calc(-1 * var(--pad));
