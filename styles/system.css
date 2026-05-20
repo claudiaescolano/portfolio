@@ -717,6 +717,52 @@ section.cta {
   gap: 16px;
 }
 
+/* ============ CONTACT VARIANT OF CTA STRIP ============
+   Used on home + about. Strips the subtitle + cream-bordered button
+   in favor of a stacked list of contact links. The black-strip shell
+   (.cta) is reused; only the inner is different. */
+
+.cta--contact .cta-inner {
+  align-items: end;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+
+@media (min-width: 900px) {
+  .contact-links {
+    align-items: flex-end;
+  }
+}
+
+.contact-link {
+  color: var(--cream);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(244, 228, 188, 0.3);
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-link:hover {
+  border-bottom-color: var(--cream);
+  color: #fff;
+}
+
+.contact-link .arrow {
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
 /* ============ SITE FOOTER ============ */
 footer.site {
   background: var(--ink);
