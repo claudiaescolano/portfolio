@@ -416,6 +416,18 @@ section.work {
   font-weight: 500;
 }
 
+/* When a real image is dropped in, hide the placeholder decoration
+   (diagonal lines + dashed inner border) and let the image cover. */
+.case-image:has(img)::before,
+.case-image:has(img)::after { display: none; }
+
+.case-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* ============ HOME MOBILE ============ */
 @media (max-width: 768px) {
   .nav-links a:first-child { display: none; }
