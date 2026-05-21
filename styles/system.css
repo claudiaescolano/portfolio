@@ -559,6 +559,25 @@ section.body-section {
   margin-right: auto;
 }
 
+/* Landscape-flex variant — wider-than-square but not 16:9 sources
+   (e.g., 3:2 multi-laptop mockups). Use object-fit: contain so the
+   full source shows without cropping. */
+.visual-block.landscape .visual-frame {
+  aspect-ratio: 3 / 2;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.visual-block.landscape .visual-frame img {
+  object-fit: contain;
+}
+
+.visual-block.landscape .visual-caption {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Full-bleed visual variant (case studies) */
 .visual-block.full {
   margin-left: calc(-1 * var(--pad));

@@ -519,6 +519,20 @@
   border-radius: 4px;
 }
 
+/* When a real video is in the frame, hide the placeholder decoration
+   and let the video fill the entire frame. */
+.video-frame:has(video)::before,
+.video-frame:has(video)::after { display: none; }
+
+.video-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .video-placeholder {
   position: absolute;
   inset: 0;
