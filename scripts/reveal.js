@@ -22,10 +22,18 @@
         observer.unobserve(entry.target);
       }
     }
-  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px 15% 0px' });
 
   targets.forEach((el) => {
     el.classList.add('reveal');
     observer.observe(el);
   });
+
+  // Safety net: if a section somehow never triggers the observer
+  // (unusual scroll pattern, programmatic scroll, etc.), force-reveal
+  // anything still hidden after 4 seconds. Prevents permanently
+  // invisible content under any browser quirk.
+  setTimeout(() => {
+    document.querySelectorAll('[data-reveal]:not(.in)').forEach((el) => el.classList.add('in'));
+  }, 4000);
 })();
