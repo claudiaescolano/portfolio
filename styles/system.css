@@ -538,6 +538,20 @@ section.body-section {
   margin-right: auto;
 }
 
+/* Square variant — multi-device grid mockups (~1:1). Slightly wider
+   max than portrait so individual devices stay legible. */
+.visual-block.square .visual-frame {
+  aspect-ratio: 1 / 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.visual-block.square .visual-caption {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Full-bleed visual variant (case studies) */
 .visual-block.full {
   margin-left: calc(-1 * var(--pad));
