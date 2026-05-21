@@ -319,6 +319,13 @@ section.body-section {
     grid-template-columns: 220px 1fr;
     gap: 64px;
   }
+
+  /* Anchor section-content to the wide column even when there are
+     multiple section-content chunks per body-inner (e.g. the iCruise
+     "Mid-Project" + "Post-Launch" chrono-markers split content into
+     several blocks). Without this, CSS Grid auto-places later chunks
+     in column 1 (the narrow label column) and the text gets squished. */
+  .section-content { grid-column: 2; }
 }
 
 .section-label {
