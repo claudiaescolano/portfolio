@@ -422,13 +422,14 @@ main.resume {
 
   .resume-section {
     margin-bottom: 11pt;
-    break-inside: avoid;
   }
 
   .resume-section h2 {
     font-size: 8.5pt;
     margin-bottom: 6pt;
     padding-bottom: 3pt;
+    /* Keep the section header glued to whatever follows it. */
+    break-after: avoid;
   }
 
   .resume-summary p {
